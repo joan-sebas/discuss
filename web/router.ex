@@ -36,6 +36,13 @@ defmodule Discuss.Router do
 
   end
 
+  scope "/jugador", Discuss do
+    pipe_through :browser
+    get "/signout",JugadorController, :signout
+    resources "/", JugadorController
+
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Discuss do
   #   pipe_through :api
