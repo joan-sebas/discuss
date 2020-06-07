@@ -8,7 +8,8 @@ defmodule Discuss.AutenController do
 
 
   def index(conn, _params) do
-    render conn, "index.html"
+    changeset = Usuario.changeset(%Usuario{}, %{})
+    render conn, "index.html", changeset: changeset
   end
 
   def signout(conn, _params) do
@@ -29,9 +30,10 @@ defmodule Discuss.AutenController do
         |> redirect(to: auten_path(conn, :index))
     end
   end
-  defp comprobar_user(  %{"nickname" => nickname}) do
 
-    case Repo.get_by(Usuario, nickname ) do
+  defp comprobar_user(%{"nickname" => nickname , "contraseña" => contraseña}) do
+
+    case Repo.get_by(Usuario, nickname) do
       nil ->
           {:error, "_reason"}
       usuario ->
@@ -40,19 +42,23 @@ defmodule Discuss.AutenController do
   end
   def new(conn, _params) do
     changeset = Usuario.changeset(%Usuario{}, %{})
-    rol=""
-    render conn, "new.html", changeset: changeset, rol: rol
-  end
-  def create(conn, changeset, rol) do
 
-    changeset =  Ecto.Changeset.put_change(changeset, :rol, rol)
+    render conn, "new.html", changeset: changeset
+  end
+  def create(conn, %{"usuario" => usuario}) do
+
+    param = Map.put(usuario, "rol", "jugador")
+    changeset=Usuario.changeset(%Usuario{}, param)
+
+
+
     case Repo.insert(changeset) do
       {:ok, _topic} ->
         conn
         |> put_flash(:info, "Usuario Creado")
         |> redirect(to: auten_path(conn, :index))
       {:error, changeset} ->
-        render conn, "new.html", changeset: changeset, rol: rol
+        render conn, "new.html", changeset: changeset
     end
   end
 

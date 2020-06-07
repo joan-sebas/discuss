@@ -4,11 +4,11 @@ defmodule Discuss.Repo.Migrations.AddReserva do
   def change do
     create table(:reserva) do
       add :cancha_id, references(:cancha)
-      add :fechaHora, :timestamptz
+      add :fechaHora, :datetime
       add :estado, :boolean
 
       timestamps()
-       timestamps(type: :timestamptz)
+
     end
   end
 end

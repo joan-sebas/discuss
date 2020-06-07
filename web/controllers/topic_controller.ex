@@ -6,7 +6,7 @@ defmodule Discuss.TopicController do
 
   plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
   plug :check_topic_owner when action in [:update, :edit, :delete]
-  plug :put_layout, :nested_layout when action not in [:edit]
+
   def index(conn, _params) do
     topics = Repo.all(Topic)
     users= Repo.all(User)
