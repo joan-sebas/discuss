@@ -3,7 +3,7 @@ defmodule Discuss.Plugs.SetUser do
   import Phoenix.Controller
 
   alias Discuss.Repo
-  alias Discuss.User
+  alias Discuss.Usuario
 
 
   def init(_params) do
@@ -12,10 +12,10 @@ defmodule Discuss.Plugs.SetUser do
   end
 
   def call(conn, _params) do
-    user_id = get_session(conn, :user_id)
+    user_id = get_session(conn, :usuario_id)
 
     cond  do
-      user = user_id && Repo.get(User, user_id)->
+      user = user_id && Repo.get(Usuario, user_id)->
         assign(conn, :user, user)
       true->
           assign(conn, :user, nil)

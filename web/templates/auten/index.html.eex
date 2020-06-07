@@ -1,0 +1,16 @@
+
+<img src="..\..\static\assets\images\logo.jpg" alt="Logo Futshow" width="100" height="100">
+
+<%= form_for @changeset,auten _path(@conn, :signin), fn f -> %>
+    <div class="form-group">
+     <%= text_input f, :nickname, placeholder: "Nickname", class: "form-control" %>
+     <%= error_tag f, :nickname %>
+     <%= password_input f, :contraseña, placeholder: "Contraseña", class: "form-control" %>
+     <%= error_tag f, :contraseña %>
+
+    </div>
+    <%= submit "LogIn", class: "btn btn-primary" %>
+<% end %>
+<div class="fixed-action-btn">
+  <%= link "Registrate", to: auten_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light blue"  %>
+</div>  

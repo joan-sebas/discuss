@@ -1,4 +1,4 @@
-defmodule Discuss.Jugador_Equipo do
+defmodule Discuss.Jugador_equipo do
   use Discuss.Web, :model
 
   schema "jugador_equipo" do
@@ -6,5 +6,10 @@ defmodule Discuss.Jugador_Equipo do
     belongs_to :equipo, Discuss.Equipo
   end
 
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params,[])
 
+
+  end
 end

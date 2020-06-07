@@ -2,8 +2,8 @@ defmodule Discuss.Cancha do
   use Discuss.Web, :model
 
   schema "cancha" do
-    field :numeroCancha, :int
-    field :numeroJugadores, :int
+    field :numeroCancha, :integer
+    field :numeroJugadores, :integer
     field :descripcion, :string
     belongs_to :establecimiento, Discuss.Establecimiento
     has_many :reserva, Discuss.Reserva

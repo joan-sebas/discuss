@@ -2,9 +2,9 @@ defmodule Discuss.Fecha_especifica do
   use Discuss.Web, :model
 
   schema "fecha_especifica" do
-    field :fechaEspecifica, :date
-    field :horaApertura, :time
-    field :horaCierre, :time
+    field :fechaEspecifica, Ecto.Date
+    field :horaApertura, Ecto.Time
+    field :horaCierre, Ecto.Time
     field :precio, :float
     belongs_to :cancha, Discuss.Cancha
 

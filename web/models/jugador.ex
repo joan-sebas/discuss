@@ -5,13 +5,14 @@ defmodule Discuss.Jugador do
     field :nombre, :string
     field :apellido, :string
     field :celular, :string
-    field :fechaNac, :date
+    field :fechaNac, Ecto.Date
     field :posicion, :string
     field :piernaBuena, :string
     belongs_to :usuario, Discuss.Usuario
     has_many :jugador_reserva, Discuss.Jugador_reserva
     has_many :jugador_equipo, Discuss.Jugador_equipo
     has_many :equipo, Discuss.Equipo
+    timestamps()
   end
 
   def changeset(struct, params \\ %{}) do

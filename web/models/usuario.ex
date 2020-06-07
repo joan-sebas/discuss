@@ -7,6 +7,7 @@ defmodule Discuss.Usuario do
     field :contraseña, :string
     has_many :jugador, Discuss.Jugador
     has_many :establecimiento, Discuss.Establecimiento
+    timestamps()
   end
 
   def changeset(struct, params \\ %{}) do

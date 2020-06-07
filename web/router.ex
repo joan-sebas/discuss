@@ -22,6 +22,17 @@ defmodule Discuss.Router do
   #  post "/topics", TopicController, :create
   #  get "/topics/:id/edit", TopicController, :edit
   #  put "/topics/:id", TopicController, :update
+    resources "/", MatchController #simplifica todo lo de arriba
+
+  end
+  scope "/topic", Discuss do
+    pipe_through :browser # Use the default browser stack
+
+  #  get "/", TopicController, :index
+  #  get "/topics/new", TopicController, :new
+  #  post "/topics", TopicController, :create
+  #  get "/topics/:id/edit", TopicController, :edit
+  #  put "/topics/:id", TopicController, :update
     resources "/", TopicController #simplifica todo lo de arriba
 
   end
@@ -35,7 +46,13 @@ defmodule Discuss.Router do
 
 
   end
+  scope "/auten", Discuss do
+    pipe_through :browser
+    get "/signout", AutenController, :signout
+    get "/signin", AutenController, :signin
+    resources "/", AutenController
 
+  end
   scope "/jugador", Discuss do
     pipe_through :browser
     get "/signout",JugadorController, :signout

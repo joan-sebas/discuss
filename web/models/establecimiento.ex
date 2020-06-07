@@ -7,6 +7,7 @@ defmodule Discuss.Establecimiento do
     field :telefono, :string
     belongs_to :usuario, Discuss.Usuario
     has_many :cancha, Discuss.Cancha
+    timestamps()
   end
 
   def changeset(struct, params \\ %{}) do
