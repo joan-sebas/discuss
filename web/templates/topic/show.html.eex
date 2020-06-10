@@ -9,9 +9,3 @@
 
   </ul>
   </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function(){
-  window.createSocket(<%= @topic.id %>)
-});
-
-</script>

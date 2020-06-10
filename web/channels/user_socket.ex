@@ -1,7 +1,7 @@
 defmodule Discuss.UserSocket do
   use Phoenix.Socket
 
-  channel "comments:*", Discuss.CommentsChannel
+  channel "jugador_reservas:*", Discuss.Jugador_reservasChannel
 
   transport :websocket, Phoenix.Transports.WebSocket
 
