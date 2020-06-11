@@ -12,5 +12,6 @@ defmodule Discuss.Jugador_reservasChannel do
   end
 
   def handle_in(name, %{"fechaHora" => fechaHora}, socket) do
-end 
+    
+end
 end

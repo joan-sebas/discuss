@@ -1,6 +1,6 @@
 defmodule Discuss.Jugador do
   use Discuss.Web, :model
-
+@derive {Poison.Encoder, only: [:nombre]}
   schema "jugador" do
     field :nombre, :string
     field :apellido, :string

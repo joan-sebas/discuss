@@ -2,7 +2,7 @@ defmodule Discuss.Events do
   use Discuss.Web, :model
 
   schema "events" do
-
+@derive {Poison.Encoder, only: [:title, :startDate, :startTime, :endDate, :endTime, :color]}
     field :title, :string
     field :startDate, Ecto.Date
     field :startTime, Ecto.Time

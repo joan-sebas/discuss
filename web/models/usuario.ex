@@ -11,7 +11,7 @@ defmodule Discuss.Usuario do
   end
 
   def changeset(struct, params \\ %{}) do
-    
+
     struct
     |> cast(params, [:nickname, :rol, :contraseña])
     |> validate_required([:nickname, :rol, :contraseña])
