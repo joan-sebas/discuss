@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Discuss!</title>
+    <title>FUTSHOW</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -50,9 +50,14 @@
     <nav class="light-blue">
 
           <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">
-              Discussions
+            <a href="/" class="brand-logo center">
+              FUTSHOW
             </a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <li><a href="/equipo">Equipo</a></li>
+              <li><a href="/establecimiento">Establecimiento</a></li>
+              <li><a href="/cancha">Cancha</a></li>
+            </ul>
             <ul class="right">
               <%= if @conn.assigns[:user] do %>
                 <li>
