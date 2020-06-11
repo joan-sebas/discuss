@@ -9,7 +9,7 @@ defmodule Discuss.Jugador do
     field :posicion, :string
     field :piernaBuena, :string
     belongs_to :usuario, Discuss.Usuario
-    has_many :jugador_reserva, Discuss.Jugador_reserva
+    has_many :events, Discuss.Events
     has_many :jugador_equipo, Discuss.Jugador_equipo
     has_many :equipo, Discuss.Equipo
     timestamps()

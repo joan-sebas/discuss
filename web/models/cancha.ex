@@ -7,9 +7,10 @@ defmodule Discuss.Cancha do
     field :descripcion, :string
     belongs_to :establecimiento, Discuss.Establecimiento
     has_many :reserva, Discuss.Reserva
-    has_many :fechaEspecifica, Discuss.Fecha_especifica
+    has_many :fechaEspecifica, Discuss.FechaEspecifica
     has_many :horario, Discuss.Horario
     has_many :cancha_caracteristicas, Discuss.Cancha_caracteristicas
+    has_many :events, Discuss.Events
   end
 
   def changeset(struct, params \\ %{}) do
