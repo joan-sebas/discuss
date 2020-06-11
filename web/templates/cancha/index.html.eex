@@ -1,0 +1,25 @@
+<h5>Canchas</h5>
+
+<ul class="collection">
+  <%= for cancha <- @cancha do %>
+    <li class="collection-item">
+      <%= link cancha.descripcion, to: cancha_path(@conn, :show, cancha) %>
+
+      <%= if @conn.assigns.user != nil do %>
+          <%= if @establecimiento.id == cancha.establecimiento_id  do %>
+            <div class="right">
+              <%= link "Edit", to: cancha_path(@conn, :edit, cancha)  %>
+              <%= link "Delete", to: cancha_path(@conn, :delete, cancha), method: :delete %>
+            </div>
+            <% end %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="fixed-action-btn">
+  <%= link to: cancha_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+
+</div>

@@ -1,0 +1,11 @@
+<h5><%= @cancha.descripcion %></h5>
+
+<div class="input-field">
+
+  <textarea class="materialize-textarea"></textarea>
+  <button class="btn">Add Comment</button>
+  <ul class="collection">
+
+
+  </ul>
+  </div>

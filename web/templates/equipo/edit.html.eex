@@ -1,0 +1,10 @@
+<%= form_for @changeset, equipo_path(@conn, :update, @equipo), fn f-> %>
+  <div class="form-group">
+    <%= text_input f, :nombre, placeholder: "Nombre del Equipo", class: "form-control" %>
+    <%= error_tag f, :nombre %>
+    <%= text_input f, :iniciales, placeholder: "Iniciales", class: "form-control" %>
+    <%= error_tag f, :iniciales %>
+
+  </div>
+  <%= submit "Guardar Cambios", class: "btn btn-primary" %>
+<% end %>
