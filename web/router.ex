@@ -11,8 +11,11 @@ defmodule Discuss.Router do
   end
 
   pipeline :api do
+
     plug :accepts, ["json"]
+
   end
+
 
   scope "/", Discuss do
     pipe_through :browser # Use the default browser stack
@@ -88,7 +91,8 @@ defmodule Discuss.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Discuss do
-  #   pipe_through :api
-  # end
+  scope "/api", Discuss do
+    pipe_through :api
+        get "/events", EventsController, :index
+   end
 end
