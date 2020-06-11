@@ -6,7 +6,7 @@ defmodule Discuss.Equipo do
     field :iniciales, :string
     belongs_to :jugador, Discuss.Jugador
     has_many :jugador_equipo, Discuss.Jugador_equipo
-    has_many :jugador_reserva, Discuss.Jugador_reserva
+      has_many :events, Discuss.Events
     timestamps()
   end
 

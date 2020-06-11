@@ -1,7 +1,7 @@
 defmodule Discuss.MatchController do
   use Discuss.Web, :controller
 
-alias Discuss.Reserva
+alias Discuss.Cancha
 
 
   plug Discuss.Plugs.RequireAuth when action in [:index, :show, :create, :edit, :update, :delete]
@@ -21,7 +21,7 @@ alias Discuss.Reserva
 
   end
   def show(conn, %{"id" => reserva_id}) do
-    reserva = Repo.get!(Reserva, reserva_id)
+    reserva = Repo.get!(Cancha, reserva_id)
     render conn, "show.html", reserva: reserva
   end
 

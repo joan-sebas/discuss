@@ -5,7 +5,7 @@ defmodule Discuss.Reserva do
     field :fechaHora, Ecto.DateTime
     field :estado, :boolean
     belongs_to :cancha, Discuss.Cancha
-    has_many :jugador_reserva, Discuss.Jugador_reserva
+  
     timestamps()
 
   end
