@@ -18,7 +18,7 @@ defmodule Discuss.Jugador do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params,[:nombre, :apellido, :celular, :fechaNac, :posicion, :piernaBuena])
-    |> validate_required([:nombre, :fechaNac, :posicion])
+    |> validate_required([:nombre, :posicion])
 
   end
 

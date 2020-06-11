@@ -1,0 +1,12 @@
+<%= form_for @changeset, cancha_path(@conn, :update, @cancha), fn f-> %>
+  <div class="form-group">
+    <%= number_input f, :numeroCancha, placeholder: "Numero cancha", class: "form-control" %>
+    <%= error_tag f, :numeroCancha %>
+    <%= number_input f, :numeroJugadores, placeholder: "Numero de Jugadores", class: "form-control" %>
+    <%= error_tag f, :numeroJugadores %>
+    <%= text_input f, :descripcion, placeholder: "Descripcion", class: "form-control" %>
+    <%= error_tag f, :descripcion %>
+
+  </div>
+  <%= submit "Guardar Cambios", class: "btn btn-primary" %>
+<% end %>

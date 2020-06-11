@@ -1,0 +1,12 @@
+<%= form_for @changeset, establecimiento_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+     <%= text_input f, :nombre, placeholder: "Nombre del Establecimiento", class: "form-control" %>
+     <%= error_tag f, :nombre %>
+     <%= text_input f, :direccion, placeholder: "Direccion", class: "form-control" %>
+     <%= error_tag f, :direccion %>
+     <%= text_input f, :telefono, placeholder: "Telefono", class: "form-control" %>
+     <%= error_tag f, :telefono %>
+
+    </div>
+    <%= submit "Guardar Establecimiento", class: "btn btn-primary" %>
+<% end %>
