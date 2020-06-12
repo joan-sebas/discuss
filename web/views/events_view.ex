@@ -13,9 +13,9 @@ def events_json(events) do
 
   %{
      title: events.title,
-     start: Enum.join([events.startDate, events.startTime], "T"),
-   end: Enum.join([events.endDate, events.endTime], "T")
-
+     start: Enum.join([events.startDate, events.startTime], " "),
+   end: Enum.join([events.endDate, events.endTime], " "),
+  durationEditable: false
   }
 end
 # show single blog

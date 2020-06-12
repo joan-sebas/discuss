@@ -15,10 +15,10 @@ defmodule Discuss.Events do
   end
 
   def changeset(struct, params \\ %{}) do
-
+    
     struct
-    |> cast(params, [:title, :startDate, :startTime, :endDate, :endTime, :color])
-    |> validate_required([:title, :startDate, :startTime, :endDate, :endTime, :color])
+    |> cast(params, [:startDate, :startTime])
+    |> validate_required([ :startDate, :startTime])
 
   end
 

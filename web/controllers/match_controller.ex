@@ -7,9 +7,7 @@ alias Discuss.Cancha
   plug Discuss.Plugs.RequireAuth when action in [:index, :show, :create, :edit, :update, :delete]
 
   def index(conn, _params) do
-    IO.puts("+++++++++")
-    IO.inspect(conn)
-
+    
     render conn, "index.html"
   end
   def calendar(conn, %{"start" => start_date, "end" => end_date} = _params) do
