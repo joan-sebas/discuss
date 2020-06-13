@@ -19,6 +19,7 @@ const createSocket = reservaId=> {
 
 
 let  channel = socket.channel(`jugador_reservas:${reservaId}`, {});
+
   channel
     .join()
     .receive('ok', resp => {
@@ -31,7 +32,7 @@ let  channel = socket.channel(`jugador_reservas:${reservaId}`, {});
       console.log(resp)
       console.log('Unable to join', resp);
     });
-  let calendar= crearCalendario(channel);
+
   channel.on(`jugador_reservas:${reservaId}:new`, mssg=>   eventoTrigger(calendar));
 
 
@@ -44,7 +45,7 @@ let  channel = socket.channel(`jugador_reservas:${reservaId}`, {});
                if (!isNaN(date.valueOf())) { // valid?
                  console.log(date);
                  console.log(moment(date).format("HH:mm:ss"));
-                 channel.push('jugador_reservas:add', { startDate: moment(date).format("YYYY-MM-DD") , startTime: moment(date).format("HH:mm:ss") });
+                 channel.push('jugador_reservas:add', { startDate: moment(date).format("YYYY-MM-DD") , startTime: moment(date).format("HH:mm:ss"), agregar: true  });
                  calendar.addEvent({
                    title: 'dynamic event',
                    start: date
@@ -58,7 +59,7 @@ let  channel = socket.channel(`jugador_reservas:${reservaId}`, {});
   });
 
 
-
+let calendar= crearCalendario(channel);
   eventoTrigger(calendar);
 
 
@@ -94,7 +95,10 @@ function crearCalendario(channel){
        if (moment(info.event.start).format("mm:ss") !="00:00") {
        info.revert();
      } else{
-       channel.push('jugador_reservas:add', { startDate: moment(info.event.start).format("YYYY-MM-DD") , startTime: moment(info.event.start).format("HH:mm:ss") });
+       channel.push('jugador_reservas:add', { startDate: moment(info.event.start).format("YYYY-MM-DD") , startTime: moment(info.event.start).format("HH:mm:ss") , agregar: true});
+       channel.push('jugador_reservas:add', { startDate: moment(info.oldEvent.start).format("YYYY-MM-DD") , startTime: moment(info.oldEvent.start).format("HH:mm:ss") , agregar: false});
+
+
      }
    },
     events: {
@@ -150,7 +154,7 @@ function renderJugador_reserva(event) {
 }
 
 function Jugador_reservaTemplate(jugador_reserva) {
-calendar.render();
+
 
   return `
 
