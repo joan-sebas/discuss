@@ -20,6 +20,7 @@ defmodule Discuss.CanchaController do
     render conn, "show.html", cancha: cancha
   end
 
+
   def new(conn, _params) do
     changeset = Cancha.changeset(%Cancha{}, %{})
 

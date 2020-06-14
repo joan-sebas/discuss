@@ -12,10 +12,12 @@ end
 def events_json(events) do
 
   %{
-     title: events.title,
+     title: "Equipo",
      start: Enum.join([events.startDate, events.startTime], " "),
-   end: Enum.join([events.endDate, events.endTime], " "),
-  durationEditable: false
+     end: Enum.join([events.endDate, events.endTime], " "),
+    durationEditable: false,
+    color: events.color,
+    editable: events.edit
   }
 end
 # show single blog
