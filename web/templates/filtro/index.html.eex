@@ -1,0 +1,8 @@
+<%= form_for @reserva, filtro_path(@conn, :buscar), fn f -> %>
+    <div class="form-group">
+     <%= number_input f, :startTime, placeholder: "Start", class: "form-control" %>
+     <%= number_input f, :endTime, placeholder: "End", class: "form-control" %>
+
+    </div>
+    <%= submit "Buscar", class: "btn btn-primary" %>
+<% end %>

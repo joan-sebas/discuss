@@ -1,0 +1,29 @@
+<h5>Resultado de la busqueda</h5>
+
+<ul class="collection">
+  <%hora2=String.to_integer(hd String.split(@startTime,":")) %>
+    <%hora3=String.to_integer(hd String.split(@endTime,":")) %>
+  <%= for busqueda <- @busqueda do %>
+        <% hora1=String.to_integer(hd String.split(to_string(busqueda.startTime),":")) %>
+        <%= if hora1 >= hora2 and hora1 <= hora3 do %>
+        <li class="collection-item">
+
+            <%= busqueda.startTime  %>
+
+
+            <div class="right">
+
+            </div>
+
+
+    </li>
+      <% end %>
+  <% end %>
+</ul>
+
+<div class="fixed-action-btn">
+  <%= link to: filtro_path(@conn, :index), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">home</i>
+  <% end %>
+
+</div>

@@ -7,7 +7,7 @@ alias Discuss.Cancha
   plug Discuss.Plugs.RequireAuth when action in [:index, :show, :create, :edit, :update, :delete]
 
   def index(conn, _params) do
-    
+
     render conn, "index.html"
   end
   def calendar(conn, %{"start" => start_date, "end" => end_date} = _params) do
@@ -22,5 +22,6 @@ alias Discuss.Cancha
     reserva = Repo.get!(Cancha, reserva_id)
     render conn, "show.html", reserva: reserva
   end
+
 
 end

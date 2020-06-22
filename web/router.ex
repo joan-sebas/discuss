@@ -25,6 +25,22 @@ defmodule Discuss.Router do
    get "/match/calendar", MatchController, :calendar
    get "/match/:id", MatchController, :show
 
+
+  #  get "/topics/new", TopicController, :new
+  #  post "/topics", TopicController, :create
+  #  get "/topics/:id/edit", TopicController, :edit
+  #  put "/topics/:id", TopicController, :update
+    #resources "/", MatchController #simplifica todo lo de arriba
+
+  end
+
+  scope "/filtro", Discuss do
+    pipe_through :browser # Use the default browser stack
+
+
+   get "/home", FiltroController, :index
+   post "/buscar", FiltroController, :buscar
+
   #  get "/topics/new", TopicController, :new
   #  post "/topics", TopicController, :create
   #  get "/topics/:id/edit", TopicController, :edit
